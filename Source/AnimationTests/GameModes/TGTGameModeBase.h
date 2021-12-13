@@ -15,14 +15,6 @@ class ANIMATIONTESTS_API ATGTGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 
-	/*UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	int32 Time;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString Type;
-
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString Value;*/
 };
 
 
