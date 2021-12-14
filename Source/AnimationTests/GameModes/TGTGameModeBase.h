@@ -15,6 +15,7 @@ class ANIMATIONTESTS_API ATGTGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 
+	void BeginPlay() override;
 };
 
 

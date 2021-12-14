@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-//#include "GameFramework/APlayerController.h"
 
 #include "TGTController.generated.h"
 
@@ -13,7 +12,15 @@ class ANIMATIONTESTS_API  ATGTController : public APlayerController
 {
 	GENERATED_BODY()
 
+public:
+	ATGTController();
 
+	/*virtual void Tick(float DeltaSeconds) override;
+
+	virtual void BeginPlay() override;
+	virtual void BeginDestroy() override;*/
+
+	void Initialize();
 };
 
 
