@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 
 #include "GameFramework/GameModeBase.h"
+#include "AnimationTests/Camera/CameraPawn.h"
 #include "TGTGameModeBase.generated.h"
 
 /**
@@ -15,7 +16,19 @@ class ANIMATIONTESTS_API ATGTGameModeBase : public AGameModeBase
 {
 	GENERATED_BODY()
 
-	void BeginPlay() override;
+	virtual void BeginPlay() override;
+
+public:
+	
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Game Settings|Gameplay")
+	TSubclassOf<class ACameraPawn> CameraPawnClass;
+
+private:
+	UPROPERTY()
+	ACameraPawn* CameraPawn;
+
+public:
+	ACameraPawn* GetCameraPawn() const;
 };
 
 
