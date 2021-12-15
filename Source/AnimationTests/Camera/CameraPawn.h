@@ -44,12 +44,10 @@ public:
 private:
 	void SolveMovement(float _deltaSeconds);
 	
-	void OnMoveX(float _value);
-	void OnMoveY(float _value);
+	void MoveForward(float _value);
+	void MoveRight(float _value);
 	void OnMoveZ(float _value);
-
-	void OnRotateCameraX(float _value);
-	void OnRotateCameraY(float _value);
+	
 };
 
 

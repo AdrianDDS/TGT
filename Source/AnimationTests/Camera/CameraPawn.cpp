@@ -12,7 +12,8 @@ ACameraPawn::ACameraPawn()
 
 	SpringArmComponent = CreateDefaultSubobject<USpringArmComponent>(TEXT("SpringArmComponent"));
 	SpringArmComponent->SetupAttachment(RootComponent);
-
+	SpringArmComponent->bUsePawnControlRotation = true;
+	
 	CameraComponent = CreateDefaultSubobject<UCameraComponent>(TEXT("CameraComponent"));
 	CameraComponent->SetupAttachment(SpringArmComponent);
 
@@ -28,12 +29,14 @@ void ACameraPawn::Tick(float DeltaSeconds)
 
 void ACameraPawn::SetupInput()
 {
-	InputComponent->BindAxis(TEXT("MoveForward"), this, &ACameraPawn::OnMoveX);
-	InputComponent->BindAxis(TEXT("MoveRight"), this, &ACameraPawn::OnMoveY);
+	InputComponent->BindAxis(TEXT("MoveForward"), this, &ACameraPawn::MoveForward);
+	InputComponent->BindAxis(TEXT("MoveRight"), this, &ACameraPawn::MoveRight);
 	InputComponent->BindAxis(TEXT("MoveUp"), this, &ACameraPawn::OnMoveZ);
 
-	InputComponent->BindAxis(TEXT("Turn"), this, &ACameraPawn::OnRotateCameraX); 
-	InputComponent->BindAxis(TEXT("LookUp"), this, &ACameraPawn::OnRotateCameraY); 
+	/*InputComponent->BindAxis(TEXT("Turn"), this, &ACameraPawn::OnRotateCameraX); 
+	InputComponent->BindAxis(TEXT("LookUp"), this, &ACameraPawn::OnRotateCameraY);*/
+	InputComponent->BindAxis(TEXT("Turn"), this, &APawn::AddControllerYawInput); 
+	InputComponent->BindAxis(TEXT("LookUp"), this, &APawn::AddControllerPitchInput);
 }
 
 void ACameraPawn::SolveMovement(float _deltaSeconds)
@@ -69,7 +72,7 @@ void ACameraPawn::SolveMovement(float _deltaSeconds)
 	
 }
 
-void ACameraPawn::OnMoveX(float _value)
+void ACameraPawn::MoveForward(float _value)
 {
 	if (abs(_value) > 0.0f)
 	{
@@ -77,7 +80,7 @@ void ACameraPawn::OnMoveX(float _value)
 	}
 }
 
-void ACameraPawn::OnMoveY(float _value)
+void ACameraPawn::MoveRight(float _value)
 {
 	if (abs(_value) > 0.0f)
 	{
@@ -93,13 +96,3 @@ void ACameraPawn::OnMoveZ(float _value)
 	}
 }
 
-void ACameraPawn::OnRotateCameraX(float _value)
-{
-	m_rotateDirection += FRotator(0.f, _value, 0.f);
-}
-
-void ACameraPawn::OnRotateCameraY(float _value)
-{
-	m_rotateDirection += FRotator(_value, 0.f,  0.f);
-	//m_rotateDirection.Pitch = FRotator::NormalizeAxis(m_rotateDirection.Pitch);
-}
