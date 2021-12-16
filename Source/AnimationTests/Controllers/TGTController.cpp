@@ -35,7 +35,7 @@ void ATGTController::InitInputController()
 
 	if(m_cameraPawn)
 	{
-		m_cameraPawn->SetupInput();
+		m_cameraPawn->SetupPlayerInputComponent(m_cameraPawn->InputComponent);
 	}else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("WARNING: There is no Camera Pawn."));

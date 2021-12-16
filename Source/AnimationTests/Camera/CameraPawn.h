@@ -32,13 +32,14 @@ private:
 
 	UPROPERTY()
 	FRotator m_rotateDirection;
+
 	
 	//Member Functions:
 public:
 	ACameraPawn();
 
 	virtual void Tick(float DeltaSeconds) override;
-	void SetupInput();
+	virtual void SetupPlayerInputComponent(UInputComponent*) override;
 
 	
 private:
