@@ -38,6 +38,25 @@ void ACameraPawn::SetupPlayerInputComponent(UInputComponent*)
 	
 	InputComponent->BindAxis(TEXT("Turn"), this, &APawn::AddControllerYawInput); 
 	InputComponent->BindAxis(TEXT("LookUp"), this, &APawn::AddControllerPitchInput);
+
+	
+}
+
+void ACameraPawn::RayCast()
+{
+	FVector CamLoc;
+	FRotator CamRot;
+
+	Controller->GetPlayerViewPoint(CamLoc, CamRot);
+
+	const FVector StartTrace = CamLoc;
+	const FVector Direction = CamRot.Vector();
+	const FVector EndTrace = StartTrace + Direction * 200;
+
+	DrawDebugLine(GetWorld(), StartTrace, EndTrace, FColor::Red, true,-1,0,10);
+
+	/*Controller->
+	Controller->GetHitResultAtScreenPosition()*/
 }
 
 void ACameraPawn::SolveMovement(float _deltaSeconds)

@@ -41,6 +41,7 @@ public:
 	virtual void Tick(float DeltaSeconds) override;
 	virtual void SetupPlayerInputComponent(UInputComponent*) override;
 
+	void RayCast();
 	
 private:
 	void SolveMovement(float _deltaSeconds);
@@ -48,6 +49,8 @@ private:
 	void MoveForward(float _value);
 	void MoveRight(float _value);
 	void OnMoveZ(float _value);
+
+	
 	
 };
 

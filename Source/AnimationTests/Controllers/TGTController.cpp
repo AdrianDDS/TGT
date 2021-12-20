@@ -23,6 +23,8 @@ void ATGTController::Initialize()
 		{
 			Possess(m_cameraPawn);
 			InitInputController();
+
+			SetShowMouseCursor(true);
 		}
 	}
 }
@@ -47,6 +49,16 @@ void ATGTController::InitInputController()
 void ATGTController::OnLeftClick()
 {
 	UE_LOG(LogTemp, Display, TEXT("Left Clicked"));
+
+	 
+	m_cameraPawn->RayCast();
+
+	/*FVector2D MousePoistion;
+	GetMousePosition(MousePoistion.X, MousePoistion.Y);
+
+
+	TArray<TEnumAsByte<EObjectTypeQuery> > ObjectTypes= TArray<AActor:: >
+	GetHitResultAtScreenPosition(MousePoistion,)*/
 }
 
 void ATGTController::OnRightClick()
