@@ -5,6 +5,8 @@
 #include "AnimationTests/Camera/CameraPawn.h"
 #include "Kismet/GameplayStatics.h"
 
+#include "HeadMountedDisplayFunctionLibrary.h"
+
 ATGTController::ATGTController()
 {
 }

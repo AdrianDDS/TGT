@@ -44,7 +44,7 @@ void ACameraPawn::SetupPlayerInputComponent(UInputComponent*)
 
 void ACameraPawn::RayCast()
 {
-	FVector CamLoc;
+	/*FVector CamLoc;
 	FRotator CamRot;
 
 	Controller->GetPlayerViewPoint(CamLoc, CamRot);
@@ -53,7 +53,7 @@ void ACameraPawn::RayCast()
 	const FVector Direction = CamRot.Vector();
 	const FVector EndTrace = StartTrace + Direction * 200;
 
-	DrawDebugLine(GetWorld(), StartTrace, EndTrace, FColor::Red, true,-1,0,10);
+	DrawDebugLine(GetWorld(), StartTrace, EndTrace, FColor::Red, true,-1,0,10);*/
 
 	/*Controller->
 	Controller->GetHitResultAtScreenPosition()*/
