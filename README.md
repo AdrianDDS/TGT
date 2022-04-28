@@ -12,20 +12,6 @@ Información importante del plugin en: https://developer.oculus.com/documentatio
 
 Las principales clases de este proyecto son:
 
-
-AnimationTests/
--Source/
---AnimationTest/
---- Camera/
----- CameraPawn.cpp
----- CameraPawn.h
---- Controllers/
----- TGTController.cpp
----- TGTController.h
---- TGTGameModeBase.cpp
---- TGTGameModeBase.h
--README
-
  - AnimationTests/
 	 - Source/
 		 - AnimationTest/
